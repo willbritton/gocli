@@ -113,7 +113,7 @@ func (c *Cli) Run(arguments []string) error {
 		c.Usage()
 	}
 
-	if c.Banner != nil && (err != nil || !*c.noBanner) {
+	if c.Banner != nil && (err != nil || (c.noBanner != nil && !*c.noBanner)) {
 		fmt.Fprintln(os.Stderr)
 		c.Banner()
 	}
